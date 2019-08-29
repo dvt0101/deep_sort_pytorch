@@ -166,7 +166,7 @@ class Predict(object):
         results = self.module.get_outputs()
         outputs = []
         for output in results:
-            outputs.append(output.asnp()) 
+            outputs.append(output.asnumpy()) 
         toc = time.time()
         infer_time = (toc - tic) * 1000
 
