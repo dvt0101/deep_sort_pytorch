@@ -354,5 +354,7 @@ def parse_args():
 
 if __name__=="__main__":
     args = parse_args()
-    with Detector(args) as det:
-        det.detect()
+    # with Detector(args) as det:
+    #     det.detect()
+    det = Detector(args)
+    det.detect()
