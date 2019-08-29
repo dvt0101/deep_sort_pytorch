@@ -300,7 +300,7 @@ class Detector(object):
 
         cap = cv2.VideoCapture('/content/faces.mp4')
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
-        out = cv2.VideoWriter('/content/output_de.avi',fourcc, 20.0, (1600,900))
+        out = cv2.VideoWriter('/content/output_de.avi',fourcc, 20.0, (1920,1080))
         while True: 
             start = time.time()
             _, ori_im = cap.read()
