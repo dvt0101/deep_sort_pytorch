@@ -231,14 +231,14 @@ class Predict(object):
 
 
 def bbox_to_xywh_cls_conf(bbox):
-    person_id = 1
+    # person_id = 1
     #confidence = 0.5
     # only person
-    bbox = bbox[person_id]
+    # bbox = bbox[person_id]
 
-    if any(bbox[:, 4] > opt.vis_thresh):
+    if any(bbox[:, 4] > 0.5):
 
-        bbox = bbox[bbox[:, 4] > opt.vis_thresh, :]
+        bbox = bbox[bbox[:, 4] > 0.5, :]
         bbox[:, 2] = bbox[:, 2] - bbox[:, 0]  #
         bbox[:, 3] = bbox[:, 3] - bbox[:, 1]  #
 
