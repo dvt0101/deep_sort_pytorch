@@ -166,7 +166,7 @@ class Predict(object):
         results = self.module.get_outputs()
         outputs = []
         for output in results:
-            outputs.append(output.asnp())
+            outputs.append(output.asnp()) 
         toc = time.time()
         infer_time = (toc - tic) * 1000
 
@@ -304,7 +304,7 @@ class Detector(object):
         while True: 
             start = time.time()
             _, ori_im = cap.read()
-            im = cv2.cvtColor(ori_im, cv2.COLOR_BGR2RGB)
+            # im = cv2.cvtColor(ori_im, cv2.COLOR_BGR2RGB)
             im = ori_im
             # bbox_xcycwh, cls_conf, cls_ids = self.yolo3(im)
             bboxes = my_predictor.predict(im, resize_scale=1, score_threshold=0.3, 
