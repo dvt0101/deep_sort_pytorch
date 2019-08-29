@@ -283,7 +283,7 @@ class Detector(object):
 
     def detect(self):
         sys.path.append('..')
-        from config_farm import configuration_10_560_25L_8scales_v1 as cfg
+        from face_detection.config_farm import configuration_10_560_25L_8scales_v1 as cfg
         import mxnet
         symbol_file_path = '/content/deep_sort_pytorch/face_detection/symbol_farm/symbol_10_560_25L_8scales_v1_deploy.json'
         model_file_path = '/content/deep_sort_pytorch/face_detection/saved_model/configuration_10_560_25L_8scales_v1/train_10_560_25L_8scales_v1_iter_1400000.params'
