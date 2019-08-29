@@ -3,6 +3,7 @@ import cv2
 import time
 import argparse
 import numpy as np
+import sys
 
 from YOLOv3 import YOLOv3
 from deep_sort import DeepSort
