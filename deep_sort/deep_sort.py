@@ -1,5 +1,5 @@
 import numpy as np
-
+import cv2
 from .deep.feature_extractor import Extractor
 from .sort.nn_matching import NearestNeighborDistanceMetric
 from .sort.preprocessing import non_max_suppression
@@ -91,6 +91,7 @@ class DeepSort(object):
         for box in bbox_xywh:
             x1,y1,x2,y2 = self._xywh_to_xyxy(box)
             im = ori_img[y1:y2,x1:x2]
+            cv2.imwrite('/content/faces/{}.png'.format(x1), im)
             im_crops.append(im)
         if im_crops:
             features = self.extractor(im_crops)
