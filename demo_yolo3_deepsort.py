@@ -307,7 +307,7 @@ class Detector(object):
             # im = cv2.cvtColor(ori_im, cv2.COLOR_BGR2RGB) 
             im = ori_im
             # bbox_xcycwh, cls_conf, cls_ids = self.yolo3(im)
-            bboxes = my_predictor.predict(im, resize_scale=1, score_threshold=0.3, 
+            bboxes = my_predictor.predict(im, resize_scale=1, score_threshold=0.5, 
                                             top_k=10000, NMS_threshold=0.3, 
                                             NMS_flag=True, skip_scale_branch_list=[])
             bboxes = np.array(bboxes)
