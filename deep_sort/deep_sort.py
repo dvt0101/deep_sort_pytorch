@@ -47,6 +47,8 @@ class DeepSort(object):
             box = track.to_tlwh()
             x1,y1,x2,y2 = self._xywh_to_xyxy_centernet(box)
             track_id = track.track_id
+            im = ori_img[y1:y2,x1:x2] 
+            cv2.imwrite('/content/faces/{}.png'.format(x1), im)
             outputs.append(np.array([x1,y1,x2,y2,track_id], dtype=np.int))
         if len(outputs) > 0:
             outputs = np.stack(outputs,axis=0)
@@ -98,8 +100,8 @@ class DeepSort(object):
         im_crops = []
         for box in bbox_xywh:
             x1,y1,x2,y2 = self._xywh_to_xyxy_centernet(box)
-            im = ori_img[y1:y2,x1:x2]
-            cv2.imwrite('/content/faces/{}.png'.format(x1), im)
+            im = ori_img[y1:y2,x1:x2] 
+            # cv2.imwrite('/content/faces/{}.png'.format(x1), im)
             im_crops.append(im)
         if im_crops:
             features = self.extractor(im_crops)
