@@ -45,7 +45,7 @@ class DeepSort(object):
             if not track.is_confirmed() or track.time_since_update > 1:
                 continue
             box = track.to_tlwh()
-            x1,y1,x2,y2 = self._tlwh_to_xyxy(box)
+            x1,y1,x2,y2 = self._xywh_to_xyxy_centernet(box)
             track_id = track.track_id
             outputs.append(np.array([x1,y1,x2,y2,track_id], dtype=np.int))
         if len(outputs) > 0:
