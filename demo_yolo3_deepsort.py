@@ -327,7 +327,7 @@ class Detector(object):
 
             end = time.time()
             print("time: {}s, fps: {}".format(end-start, 1/(end-start)))
-            print(ori_im.shape)
+            # print(ori_im.shape)
             out.write(ori_im)
             # if self.args.display:
             #     cv2.imshow("test", ori_im)
