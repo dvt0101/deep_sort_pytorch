@@ -45,11 +45,12 @@ class KalmanFilter(object):
         for i in range(ndim):
             self._motion_mat[i, ndim + i] = dt
         self._update_mat = np.eye(ndim, 2 * ndim)
-
+        print('init motion mat {}'.format(self._motion_mat))
+        print('init update mat {}'.format(self._update_mat))
         # Motion and observation uncertainty are chosen relative to the current
         # state estimate. These weights control the amount of uncertainty in
-        # the model. This is a bit hacky.
-        self._std_weight_position = 1. / 20
+        # the model. This is a bit hacky. 
+        self._std_weight_position = 1. / 20 
         self._std_weight_velocity = 1. / 160
 
     def initiate(self, measurement):
@@ -83,6 +84,8 @@ class KalmanFilter(object):
             1e-5,
             10 * self._std_weight_velocity * measurement[3]]
         covariance = np.diag(np.square(std))
+        print('initiate mean {}'.format(mean))
+        print('initiate covariance {}'.format(covariance))
         return mean, covariance
 
     def predict(self, mean, covariance):
