@@ -53,6 +53,7 @@ class KalmanFilter(object):
         self._std_weight_position = 1. / 20 
         self._std_weight_velocity = 1. / 160
 
+
     def initiate(self, measurement):
         """Create track from unassociated measurement.
 
@@ -67,7 +68,7 @@ class KalmanFilter(object):
         (ndarray, ndarray)
             Returns the mean vector (8 dimensional) and covariance matrix (8x8
             dimensional) of the new track. Unobserved velocities are initialized
-            to 0 mean.
+            to 0 mean. 
 
         """
         mean_pos = measurement
@@ -107,6 +108,7 @@ class KalmanFilter(object):
             state. Unobserved velocities are initialized to 0 mean.
 
         """
+        print('before predict {\n} {\n}').format(mean, covariance)
         std_pos = [
             self._std_weight_position * mean[3],
             self._std_weight_position * mean[3],
@@ -123,6 +125,7 @@ class KalmanFilter(object):
         covariance = np.linalg.multi_dot((
             self._motion_mat, covariance, self._motion_mat.T)) + motion_cov
 
+        print('after predict {\n} {\n}').format(mean, covariance)
         return mean, covariance
 
     def project(self, mean, covariance):
