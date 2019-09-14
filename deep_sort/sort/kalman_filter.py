@@ -108,7 +108,8 @@ class KalmanFilter(object):
             state. Unobserved velocities are initialized to 0 mean.
 
         """
-        print('before predict \n{} \n{}').format(mean, covariance)
+        print('before predict {} \n').format(mean)
+        print('befor predict {}\n').format(covariance)
         std_pos = [
             self._std_weight_position * mean[3],
             self._std_weight_position * mean[3],
@@ -125,7 +126,8 @@ class KalmanFilter(object):
         covariance = np.linalg.multi_dot((
             self._motion_mat, covariance, self._motion_mat.T)) + motion_cov
 
-        print('after predict \n{} \n {}').format(mean, covariance)
+        print('after predict {}\n').format(mean)
+        print('after predict {}\n').format(covariance)
         return mean, covariance
 
     def project(self, mean, covariance):
