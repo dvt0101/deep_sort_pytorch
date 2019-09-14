@@ -108,8 +108,8 @@ class KalmanFilter(object):
             state. Unobserved velocities are initialized to 0 mean.
 
         """
-        print('before predict {} \n').format(mean)
-        print('befor predict {}\n').format(covariance)
+        print('before predict \n',mean)
+        print('befor predict \n',covariance)
         std_pos = [
             self._std_weight_position * mean[3],
             self._std_weight_position * mean[3],
