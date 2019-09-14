@@ -126,8 +126,8 @@ class KalmanFilter(object):
         covariance = np.linalg.multi_dot((
             self._motion_mat, covariance, self._motion_mat.T)) + motion_cov
 
-        print('after predict {}\n').format(mean)
-        print('after predict {}\n').format(covariance)
+        print('after predict \n',mean)
+        print('after predict \n',covariance)
         return mean, covariance
 
     def project(self, mean, covariance):
