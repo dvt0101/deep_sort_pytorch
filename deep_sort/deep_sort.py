@@ -103,10 +103,13 @@ class DeepSort(object):
             im = ori_img[y1:y2,x1:x2] 
             cv2.imwrite('/content/faces/{}.png'.format(x1), im)
             im_crops.append(im)
+        print('len of im crop {}'.format(len(im_crops)))
         if im_crops:
             features = self.extractor(im_crops)
+            print('features shape {}'.format(features.shape))
         else:
             features = np.array([])
+
         return features
 
 
